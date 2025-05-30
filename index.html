@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monastero di San Maurizio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .image-container {
+      display: none;
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Monastero di San Maurizio</h1>
+
+    <button id="autoguidaButton">Ascolta l'Autoguida</button>
+    <button id="immaginiButton">Visualizza Immagini</button>
+
+    <!-- Audio player -->
+    <audio id="audioPlayer" controls style="display: none;">
+      <source src="autoguida.mp3" type="audio/mp3">
+      Il tuo browser non supporta l'elemento audio.
+    </audio>
+
+    <!-- Image container -->
+    <div class="image-container" id="imageContainer">
+      <img src="monastero1.jpg" alt="Immagine 1 del Monastero">
+      <img src="monastero2.jpg" alt="Immagine 2 del Monastero">
+      <img src="monastero3.jpg" alt="Immagine 3 del Monastero">
+    </div>
+  </div>
+
+  <script>
+    // Ottieni i riferimenti agli elementi
+    const autoguidaButton = document.getElementById('autoguidaButton');
+    const immaginiButton = document.getElementById('immaginiButton');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const imageContainer = document.getElementById('imageContainer');
+
+    // Funzione per avviare l'autoguida
+    autoguidaButton.addEventListener('click', function() {
+      audioPlayer.style.display = 'block';  // Mostra il lettore audio
+      imageContainer.style.display = 'none';  // Nasconde le immagini
+      audioPlayer.play();  // Avvia l'audio
+    });
+
+    // Funzione per visualizzare le immagini
+    immaginiButton.addEventListener('click', function() {
+      audioPlayer.style.display = 'none';  // Nasconde il lettore audio
+      imageContainer.style.display = 'block';  // Mostra le immagini
+    });
+  </script>
+</body>
+</html>
